@@ -164,13 +164,12 @@
     <nav class="fixed w-full z-50 h-16 md:h-20 flex items-center glass-nav">
         <div class="max-w-7xl mx-auto px-6 md:px-10 w-full flex justify-between items-center">
             <div class="flex items-center">
-                <!-- LOGO 放大且白底處理，並導向指定網址 -->
                 <a href="https://www.initial1987.com/" target="_blank" class="h-12 md:h-16 flex items-center hover:opacity-80 transition duration-500">
                     <img src="13.png" alt="日初觀山 Logo" class="h-full w-auto object-contain" style="filter: invert(1); mix-blend-mode: multiply;">
                 </a>
             </div>
             
-            <!-- 桌面版選單 -->
+            <!-- 桌面選單 -->
             <div class="hidden md:flex space-x-10 items-center text-[12px] font-bold tracking-[0.2em] text-stone-600 uppercase">
                 <a href="#about" class="nav-link transition">關於本案</a>
                 <a href="#planning" class="nav-link transition">建築規劃</a>
@@ -180,7 +179,7 @@
                 <a href="#contact" class="px-6 py-2 bg-stone-900 text-white hover:bg-[#b39352] transition-all duration-700 font-bold tracking-widest text-[11px] shadow-lg">預約鑑賞</a>
             </div>
 
-            <!-- 手機版漢堡按鈕 -->
+            <!-- 手機漢堡 -->
             <button onclick="toggleMobileMenu()" class="md:hidden flex flex-col gap-1.5 p-2">
                 <div class="w-6 h-0.5 bg-stone-800"></div>
                 <div class="w-6 h-0.5 bg-stone-800"></div>
@@ -189,7 +188,7 @@
         </div>
     </nav>
 
-    <!-- 手機版側邊選單 -->
+    <!-- 手機側邊選單 -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white md:hidden flex flex-col items-center justify-center space-y-8 text-xl font-bold tracking-widest text-stone-800 shadow-2xl">
         <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-4xl font-light">&times;</button>
         <a href="#about" onclick="toggleMobileMenu()" class="hover:text-[#b39352]">關於本案</a>
@@ -209,9 +208,9 @@
         <div class="relative z-10 text-center space-y-6 md:space-y-12 px-6">
             <div class="reveal">
                 <img src="13.png" alt="書法 Logo" class="w-56 md:w-[450px] mx-auto mb-8 md:mb-16 opacity-90">
-                <p class="text-white/70 text-[9px] md:text-[11px] eng tracking-[0.5em] md:tracking-[1em] uppercase font-bold">Academic Elegance • Quiet Luxury</p>
+                <p class="text-white/70 text-[9px] md:text-[11px] eng tracking-[0.5em] md:tracking-[1em] uppercase font-bold text-center">Academic Elegance • Quiet Luxury</p>
                 <div class="w-16 md:w-24 h-[1px] bg-[#b39352]/60 mx-auto my-6 md:my-10"></div>
-                <p class="text-stone-200 text-sm md:text-2xl font-light tracking-[0.3em] md:tracking-[0.6em] serif">溪湖高中旁 ・ 境美別墅聚落</p>
+                <p class="text-stone-200 text-sm md:text-2xl font-light tracking-[0.3em] md:tracking-[0.6em] serif text-center">溪湖高中旁 ・ 境美別墅聚落</p>
             </div>
         </div>
         <div class="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-4">
@@ -224,25 +223,25 @@
     <section id="about" class="py-24 md:py-48 bg-white">
         <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
             <div class="reveal">
-                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.4em] md:tracking-[0.6em] block mb-6 md:mb-10 uppercase font-black">Design Philosophy</span>
+                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.4em] md:tracking-[0.6em] block mb-6 md:mb-10 uppercase font-black text-center">Design Philosophy</span>
                 <h2 class="text-2xl md:text-5xl serif leading-relaxed text-stone-800 mb-8 md:mb-16 italic text-center">
                     給家人更好的成長環境<br>也給自己一個真正放鬆的家
                 </h2>
-                <p class="text-stone-500 font-light leading-loose text-base md:text-xl tracking-widest max-w-2xl mx-auto opacity-90">
+                <p class="text-stone-500 font-light leading-loose text-base md:text-xl tracking-widest max-w-2xl mx-auto opacity-90 text-center">
                     理想的住宅不只是鋼筋水泥的堆疊，而是對生活品質的深刻理解。在溪湖核心，築起一座靜謐的人文棲所。
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- 建築美學 (3.jpg) -->
-    <section class="py-20 md:py-40 bg-stone-100 overflow-hidden">
+    <!-- 建築美學 -->
+    <section class="py-20 md:py-40 bg-stone-100 overflow-hidden text-center md:text-left">
         <div class="max-w-7xl mx-auto px-6 md:px-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
-                <div class="lg:col-span-5 reveal order-2 lg:order-1 text-left">
-                    <span class="text-[#b39352] text-[10px] eng tracking-[0.5em] block mb-6 uppercase font-bold">Exterior Art</span>
-                    <h3 class="text-2xl md:text-5xl serif text-stone-800 mb-6 md:mb-10 leading-snug font-bold">日式現代建築<br>靜靜安放家的重量</h3>
-                    <p class="text-stone-500 font-light leading-relaxed mb-8 md:mb-16 text-sm md:text-lg">
+                <div class="lg:col-span-5 reveal order-2 lg:order-1">
+                    <span class="text-[#b39352] text-[10px] eng tracking-[0.5em] block mb-6 uppercase font-bold text-center md:text-left">Exterior Art</span>
+                    <h3 class="text-2xl md:text-5xl serif text-stone-800 mb-6 md:mb-10 leading-snug font-bold text-center md:text-left">日式現代建築<br>靜靜安放家的重量</h3>
+                    <p class="text-stone-500 font-light leading-relaxed mb-8 md:mb-16 text-sm md:text-lg text-center md:text-left">
                         外觀採用洗鍊的水平線條與自然石材紋理，展現出典雅而穩重的建築姿態。
                     </p>
                 </div>
@@ -255,10 +254,10 @@
         </div>
     </section>
 
-    <!-- 極致規劃 (4.jpg) -->
-    <section id="planning" class="py-20 md:py-40 bg-white overflow-hidden border-b border-stone-50">
-        <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
-             <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 md:mb-10 uppercase font-black reveal">Master Planning</span>
+    <!-- 極致規劃 -->
+    <section id="planning" class="py-20 md:py-40 bg-white overflow-hidden border-b border-stone-50 text-center md:text-left">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+             <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 md:mb-10 uppercase font-black reveal text-center">Master Planning</span>
              <h2 class="text-2xl md:text-5xl serif text-stone-800 mb-12 md:mb-20 reveal font-bold text-center">大尺度生活空間・極致規劃</h2>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
                 <div class="lg:col-span-7 reveal">
@@ -266,19 +265,19 @@
                         <img src="4.jpg" alt="規劃示意圖">
                     </div>
                 </div>
-                <div class="lg:col-span-5 reveal text-left">
+                <div class="lg:col-span-5 reveal">
                     <div class="space-y-10 md:space-y-16">
-                        <div class="border-l-2 border-[#b39352] pl-6 md:pl-10">
-                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider text-left">60–90 坪大器尺度</h4>
-                            <p class="text-stone-500 text-sm md:text-base leading-relaxed font-light text-left">為家庭預留最舒展的尺度，三代同堂依然自在。</p>
+                        <div class="border-l-2 border-[#b39352] pl-6 md:pl-10 text-left">
+                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider">60–90 坪大器尺度</h4>
+                            <p class="text-stone-500 text-sm md:text-base leading-relaxed font-light">為家庭預留最舒展的尺度，三代同堂依然自在。</p>
                         </div>
-                        <div class="border-l-2 border-stone-200 pl-6 md:pl-10">
-                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider text-left">整層大主臥與電梯</h4>
-                            <p class="text-stone-500 text-base leading-relaxed font-light text-left">結合現代無障礙動線設計，賦予主人極致的私密與舒適感。</p>
+                        <div class="border-l-2 border-stone-200 pl-6 md:pl-10 text-left">
+                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider">整層大主臥與電梯</h4>
+                            <p class="text-stone-500 text-sm md:text-base leading-relaxed font-light">結合現代無障礙動線設計，賦予主人極致的私密與舒適感。</p>
                         </div>
-                        <div class="border-l-2 border-stone-200 pl-6 md:pl-10">
-                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider text-left">併排雙車位設計</h4>
-                            <p class="text-stone-500 text-base leading-relaxed font-light text-left">5.2 - 6 米寬廣大面寬設計，滿足高品質用車生活。</p>
+                        <div class="border-l-2 border-stone-200 pl-6 md:pl-10 text-left">
+                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider">併排雙車位設計</h4>
+                            <p class="text-stone-500 text-sm md:text-base leading-relaxed font-light">5.2 - 6 米寬廣大面寬設計，滿足高品質用車生活。</p>
                         </div>
                     </div>
                 </div>
@@ -286,12 +285,11 @@
         </div>
     </section>
 
-    <!-- 室內美學 (11.jpg / 10.jpg) -->
-    <section id="interior" class="py-20 md:py-40 bg-stone-50">
+    <!-- 空間美學 -->
+    <section id="interior" class="py-20 md:py-40 bg-stone-50 text-center">
         <div class="max-w-7xl mx-auto px-6 md:px-10">
             <div class="text-center mb-16 md:mb-32 reveal">
-                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 uppercase font-bold">Space Harmony</span>
-                <!-- 調整標題字體大小 -->
+                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 uppercase font-bold text-center">Space Harmony</span>
                 <h2 class="text-2xl md:text-4xl serif text-stone-800 font-bold mb-4 text-center">奢華・深度休憩空間</h2>
                 <div class="w-16 h-[1px] bg-stone-300 mx-auto mt-6 md:mt-10"></div>
             </div>
@@ -305,7 +303,7 @@
                     <div class="img-container aspect-[4/5] cursor-pointer" onclick="openFullImage('10.jpg')">
                         <img src="10.jpg" alt="室內實景 10">
                     </div>
-                    <p class="mt-8 md:mt-12 text-stone-500 font-light leading-loose text-sm md:text-lg italic opacity-80 text-left">
+                    <p class="mt-8 md:mt-12 text-stone-500 font-light leading-loose text-sm md:text-lg italic opacity-80 text-left px-4 md:px-0">
                         大面採光引入四時晨曦，讓光線在居家角落自在嬉戲。
                     </p>
                 </div>
@@ -313,36 +311,37 @@
         </div>
     </section>
 
-    <!-- 空拍地段 (15.jpg) -->
-    <section id="location-aerial" class="py-24 md:py-48 bg-stone-900 text-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
+    <!-- 空拍地段 -->
+    <section id="location-aerial" class="py-24 md:py-48 bg-stone-900 text-white overflow-hidden text-center">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 text-center text-white">
             <div class="reveal mb-12 md:mb-24">
-                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 uppercase font-bold">Strategic Location</span>
-                <h2 class="text-2xl md:text-6xl serif mb-6 md:mb-10 leading-tight font-bold tracking-widest text-center text-white">繁華與安寧的交界</h2>
-                <p class="text-stone-400 font-light leading-loose text-sm md:text-lg tracking-widest max-w-3xl mx-auto text-center">
-                    空拍俯瞰溪湖核心，日初觀山坐落於教育與機能的最佳交匯點。一邊是學風鼎盛的高中校園，一邊是靜謐繁榮的居住聚落。
+                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 uppercase font-bold text-center">Strategic Location</span>
+                <h2 class="text-2xl md:text-6xl serif mb-6 md:mb-10 leading-tight font-bold tracking-widest text-white text-center">繁華與安寧的交界</h2>
+                <p class="text-stone-400 font-light leading-loose text-sm md:text-lg tracking-widest max-w-3xl mx-auto text-center px-4 md:px-0">
+                    日初觀山坐落於教育與機能的最佳交匯點。一邊是學風鼎盛的高中校園，一邊是靜謐繁榮的居住聚落。
                 </p>
             </div>
             <div class="reveal">
                 <div class="img-container shadow-2xl cursor-pointer rounded-sm" onclick="openFullImage('15.jpg')">
-                    <img src="15.jpg" alt="空拍位置圖" class="opacity-90">
+                    <img src="15.jpg" alt="空拍位置圖" class="opacity-90 hover:opacity-100 duration-1000">
                 </div>
                 <p class="mt-6 md:mt-10 text-[9px] md:text-[11px] eng tracking-[0.3em] text-stone-500 uppercase text-center">Aerial Map Perspective</p>
             </div>
         </div>
     </section>
 
-    <!-- 生活機能影片 (16.mp4) -->
-    <section class="py-20 md:py-40 bg-white overflow-hidden border-b border-stone-50">
+    <!-- 生活機能影片 (18.mp4) -->
+    <section class="py-20 md:py-40 bg-white overflow-hidden border-b border-stone-50 text-center">
         <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
             <div class="mb-12 md:mb-24 reveal">
                 <h2 class="text-2xl md:text-5xl serif text-stone-800 mb-4 tracking-widest font-bold uppercase text-center">溪湖生活圈・便利即達</h2>
                 <p class="text-[#b39352] text-[10px] md:text-xs eng tracking-[0.4em] uppercase font-bold text-center">Living Guide Dynamic Tour</p>
             </div>
             <div class="max-w-6xl mx-auto reveal">
+                <!-- 換成 18.mp4 -->
                 <div class="img-container shadow-3xl bg-stone-50 rounded-xl min-h-[250px] md:min-h-[450px]">
                     <video autoplay muted loop playsinline preload="auto" poster="14.jpg" class="w-full h-auto block">
-                        <source src="16.mp4" type="video/mp4">
+                        <source src="18.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mt-12 md:mt-24 text-left px-4">
@@ -360,11 +359,11 @@
     </section>
 
     <!-- 實景藝廊 -->
-    <section id="gallery" class="py-20 md:py-40 bg-stone-50">
+    <section id="gallery" class="py-20 md:py-40 bg-stone-50 text-center md:text-left">
         <div class="max-w-7xl mx-auto px-6 md:px-10">
             <div class="flex flex-col md:flex-row justify-between items-baseline mb-16 md:mb-32 reveal text-center md:text-left">
-                <h2 class="text-3xl md:text-6xl serif text-stone-800 font-bold tracking-tight w-full md:w-auto">建築藝廊</h2>
-                <span class="text-stone-400 text-xs md:text-sm eng tracking-[0.3em] uppercase font-bold mt-4 md:mt-0 opacity-60 w-full md:w-auto">Collection 2025</span>
+                <h2 class="text-3xl md:text-6xl serif text-stone-800 font-bold tracking-tight w-full md:w-auto text-center md:text-left">建築藝廊</h2>
+                <span class="text-stone-400 text-xs md:text-sm eng tracking-[0.3em] uppercase font-bold mt-4 md:mt-0 opacity-60 w-full md:w-auto text-center md:text-left">Collection 2025</span>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                 <div class="img-container aspect-square cursor-pointer reveal" onclick="openFullImage('1.jpg')"><img src="1.jpg"></div>
@@ -373,26 +372,26 @@
                 <div class="img-container aspect-square cursor-pointer reveal md:mt-24" onclick="openFullImage('7.jpg')"><img src="7.jpg"></div>
                 <div class="img-container aspect-square cursor-pointer reveal" onclick="openFullImage('8.jpg')"><img src="8.jpg"></div>
                 <div class="img-container aspect-square cursor-pointer reveal" onclick="openFullImage('9.jpg')"><img src="9.jpg"></div>
-                <!-- 手機版文字橫式優化 -->
+                <!-- 手機版優化橫式排列 -->
                 <div class="col-span-2 md:col-span-2 flex items-center justify-center bg-stone-900 text-white p-6 md:p-16 reveal shadow-2xl">
-                    <p class="serif text-xl md:text-3xl text-center tracking-[0.1em] md:tracking-[0.2em] italic opacity-80 leading-relaxed font-light text-center">追求極致匠心，築起不凡高度。</p>
+                    <p class="serif text-lg md:text-3xl text-center tracking-[0.1em] md:tracking-[0.2em] italic opacity-80 leading-relaxed font-light">追求極致匠心，築起不凡高度。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 720 VR -->
-    <section class="py-20 md:py-40 bg-white">
+    <section class="py-20 md:py-40 bg-white text-center">
         <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
-            <div class="reveal mb-12 md:mb-24">
+            <div class="reveal mb-12 md:mb-24 text-center">
                 <h2 class="text-3xl md:text-5xl serif text-stone-800 mb-6 tracking-widest font-bold uppercase text-center">720° 全景線上賞屋</h2>
                 <div class="w-16 h-[1px] bg-[#b39352] mx-auto"></div>
             </div>
-            <div class="reveal shadow-3xl rounded-2xl overflow-hidden border border-stone-100 bg-stone-50 p-2 md:p-0 text-center">
+            <div class="reveal shadow-3xl rounded-2xl overflow-hidden border border-stone-100 bg-stone-50 p-2 md:p-0">
                 <div class="relative w-full aspect-video md:aspect-[21/9] min-h-[300px] md:min-h-[500px]">
                     <iframe src="https://www.qwhouse720.com/tour/a04bf933b0b50a3f" frameborder="no" class="absolute inset-0 w-full h-full" allow="fullscreen; gyroscope; accelerometer; vr" allowfullscreen></iframe>
                 </div>
-                <!-- 全螢幕按鈕 -->
+                <!-- 手機版 VR 全螢幕專屬按鈕 -->
                 <div class="mt-8 text-center">
                     <a href="https://www.qwhouse720.com/tour/a04bf933b0b50a3f" target="_blank" class="inline-flex items-center gap-3 px-8 py-3 bg-stone-800 text-white text-sm font-bold tracking-widest hover:bg-[#b39352] transition shadow-xl uppercase">
                         <span>開啟全螢幕 VR 鑑賞</span>
@@ -403,7 +402,7 @@
         </div>
     </section>
 
-    <!-- 聯絡預約 -->
+    <!-- 聯絡預約 (經典白底字卡還原) -->
     <section id="contact" class="py-20 md:py-40 relative bg-stone-900 text-center overflow-hidden">
         <img src="5.jpg" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" alt="背景">
         <div class="relative z-10 max-w-4xl mx-auto px-6 bg-white p-10 md:p-24 shadow-3xl reveal rounded-sm">
@@ -427,10 +426,10 @@
         </div>
     </section>
 
-    <footer class="py-16 md:py-24 bg-black text-center">
+    <footer class="py-16 md:py-24 bg-black text-center text-white">
         <div class="max-w-7xl mx-auto px-10 flex flex-col md:flex-row justify-between items-center opacity-30 gap-4">
-            <p class="text-[9px] md:text-[10px] eng tracking-[0.4em] text-white uppercase font-bold text-center">© 2025 SHIAO LI CONSTRUCTION. ALL RIGHTS RESERVED.</p>
-            <p class="text-[9px] md:text-[10px] text-white tracking-[0.2em] font-bold text-center">蕭立建設｜卓越美學・建築新高度</p>
+            <p class="text-[9px] md:text-[10px] eng tracking-[0.4em] text-white uppercase font-bold text-center uppercase">© 2025 SHIAO LI CONSTRUCTION. ALL RIGHTS RESERVED.</p>
+            <p class="text-[9px] md:text-[10px] text-white tracking-[0.2em] font-bold text-center uppercase">蕭立建設｜卓越美學・建築新高度</p>
         </div>
     </footer>
 
@@ -442,7 +441,7 @@
                     <span class="w-2 h-2 bg-[#b39352] rounded-full animate-pulse shadow-[0_0_8px_#b39352]"></span>
                     <div>
                         <p class="text-[8px] eng tracking-[0.2em] text-[#b39352] mb-0.5 uppercase font-black">Concierge Service</p>
-                        <p class="serif text-lg tracking-widest font-bold uppercase">智能顧問</p>
+                        <p class="serif text-lg tracking-widest font-bold">智能顧問</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-white/40 hover:text-white transition text-3xl font-light">&times;</button>
@@ -454,19 +453,19 @@
                 </a>
             </div>
             <div id="chat-messages" class="chat-messages flex flex-col space-y-4">
-                <div class="message ai shadow-sm border border-stone-100 text-left">您好！我是日初觀山的智能顧問 ✨。很榮幸能為您導覽這個學區美學別墅聚落。</div>
+                <div class="message ai shadow-sm border border-stone-100 text-left px-4">您好！我是日初觀山的智能顧問 ✨。很榮幸能為您導覽這個美學別墅聚落。</div>
             </div>
-            <div id="typing-indicator" class="hidden px-6 py-2 text-[10px] text-stone-300 italic font-bold">思考中...</div>
+            <div id="typing-indicator" class="hidden px-6 py-2 text-[10px] text-stone-300 italic font-bold text-left px-4">思考中...</div>
             <div class="p-4 bg-white border-t border-stone-100 flex items-center space-x-3">
-                <input type="text" id="user-input" placeholder="請輸入詢問內容..." class="flex-1 outline-none text-sm font-light px-4 py-2.5 bg-stone-50 rounded-full border border-stone-200 focus:border-[#b39352]">
+                <input type="text" id="user-input" placeholder="請輸入詢問內容..." class="flex-1 outline-none text-xs font-light px-4 py-2.5 bg-stone-50 rounded-full border border-stone-200 focus:border-[#b39352]">
                 <button onclick="sendMessage()" class="w-10 h-10 flex items-center justify-center bg-stone-900 text-[#b39352] rounded-full hover:bg-black transition-all shadow-xl">➔</button>
             </div>
         </div>
         <button onclick="toggleChat()" class="group bg-white border border-[#b39352]/30 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-all duration-500">
             <span class="absolute inset-0 bg-[#b39352] opacity-10 rounded-full animate-ping group-hover:hidden"></span>
             <div class="relative z-10 flex flex-col items-center">
-                <span class="text-[#b39352] text-2xl group-hover:rotate-12 transition-transform font-bold font-bold">✨</span>
-                <span class="text-[8px] font-bold text-stone-400 eng mt-0.5 tracking-tighter uppercase">AI</span>
+                <span class="text-[#b39352] text-xl group-hover:rotate-12 transition-transform font-bold font-bold">✨</span>
+                <span class="text-[8px] font-black text-stone-400 eng mt-0.5 tracking-tighter uppercase">AI</span>
             </div>
         </button>
     </div>
@@ -481,7 +480,7 @@
             const text = input.value.trim();
             if(!text) return;
             const uMsg = document.createElement('div');
-            uMsg.className = 'message user shadow-md text-left';
+            uMsg.className = 'message user shadow-md text-left px-4';
             uMsg.textContent = text;
             history.appendChild(uMsg);
             input.value = '';
@@ -490,8 +489,8 @@
             setTimeout(() => {
                 document.getElementById('typing-indicator').classList.add('hidden');
                 const aMsg = document.createElement('div');
-                aMsg.className = 'message ai shadow-sm border border-stone-100 text-left';
-                aMsg.innerHTML = "✨ 感謝您的詢問！推薦您撥打預約專線 <a href='tel:0917-833-296' class='text-[#b39352] font-black underline'>0917-833-296</a>，我們將由專人為您服務。";
+                aMsg.className = 'message ai shadow-sm border border-stone-100 text-left px-4';
+                aMsg.innerHTML = "✨ 感謝您的詢問！為了提供最精確的資訊，推薦您撥打預約專線 <a href='tel:0917-833-296' class='text-[#b39352] font-black underline'>0917-833-296</a>，我們將由專人為您服務。";
                 history.appendChild(aMsg);
                 history.scrollTop = history.scrollHeight;
             }, 1000);

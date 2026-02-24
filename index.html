@@ -13,6 +13,7 @@
             --brand-dark: #121212;
             --brand-beige: #f4f1ea;
         }
+        ::selection { background: var(--brand-gold); color: white; }
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--brand-beige);
@@ -23,10 +24,10 @@
         .serif { font-family: 'Noto Serif TC', serif; }
         .eng { font-family: 'Cinzel', serif; }
         
-        /* 導覽列：極致細膩的磨砂質感 */
+        /* 導覽列 */
         .glass-nav {
             backdrop-filter: blur(20px);
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid rgba(179, 147, 82, 0.08);
             transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
         }
@@ -35,7 +36,7 @@
         .img-container {
             position: relative;
             overflow: hidden;
-            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.12);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
             background: #fff;
         }
         .img-container img, .img-container video {
@@ -44,74 +45,67 @@
             height: 100%;
             object-fit: cover;
         }
-        .img-container:hover img {
-            transform: scale(1.06);
-        }
 
         /* 揭幕動畫 */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* AI 聊天室：跟隨按鈕並具備彈性動效 */
+        /* AI 聊天室定位 */
         #ai-chat-widget {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
         }
         #ai-chat-window {
-            width: 360px;
-            max-width: 90vw;
-            height: 580px;
+            width: 320px;
+            max-width: 85vw;
+            height: 500px;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18);
-            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
             display: none;
             flex-direction: column;
             overflow: hidden;
-            border: 1px solid rgba(179, 147, 82, 0.15);
-            animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(179, 147, 82, 0.1);
         }
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
         #ai-chat-window.active { display: flex; }
-        .chat-messages { flex: 1; overflow-y: auto; padding: 20px; background: #fcfcfc; }
-        .message { margin-bottom: 16px; max-width: 85%; padding: 12px 18px; border-radius: 18px; font-size: 14px; line-height: 1.6; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 15px; background: #fcfcfc; }
+        .message { margin-bottom: 12px; max-width: 85%; padding: 10px 14px; border-radius: 15px; font-size: 13px; line-height: 1.5; }
         .message.ai { background: white; color: #333; align-self: flex-start; border: 1px solid #eee; border-bottom-left-radius: 2px; }
         .message.user { background: var(--brand-dark); color: white; align-self: flex-end; margin-left: auto; border-bottom-right-radius: 2px; }
 
-        /* 社群側欄 */
+        /* 社群側欄 - 手機版微調防止遮擋 */
         .social-sidebar {
             position: fixed;
-            right: 24px;
-            top: 50%;
+            right: 20px;
+            top: 45%;
             transform: translateY(-50%);
             z-index: 90;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         .social-btn {
-            width: 46px; height: 46px; border-radius: 50%;
+            width: 40px; height: 40px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; color: white;
         }
-        .social-btn:hover { transform: scale(1.1) translateX(-5px); }
-        .bg-line { background-color: #06c755; }
-        .bg-ig { background-color: #e4405f; }
-        .bg-fb { background-color: #1877f2; }
-        .bg-yt { background-color: #ff0000; }
+        @media (max-width: 768px) {
+            .social-sidebar { right: 10px; gap: 8px; }
+            .social-btn { width: 36px; height: 36px; }
+        }
 
         /* 選單懸停下劃線 */
         .nav-link { position: relative; }
@@ -121,136 +115,148 @@
         }
         .nav-link:hover::after { width: 100%; }
 
-        .reveal-mask {
-            position: relative;
-            overflow: hidden;
+        /* 手機版選單動畫 */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateX(100%);
         }
-        .reveal-mask::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--brand-beige);
-            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-            transform-origin: right;
-        }
-        .reveal.active .reveal-mask::after { transform: scaleX(0); }
+        #mobile-menu.active { transform: translateX(0); }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
     <!-- 燈箱 -->
     <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 z-[9999] bg-black/98 hidden items-center justify-center cursor-zoom-out p-4 opacity-0 transition-opacity duration-300">
-        <button class="absolute top-8 right-10 text-white/40 hover:text-white text-5xl font-light transition">&times;</button>
-        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] object-contain shadow-2xl scale-95 transition-transform duration-500">
+        <button class="absolute top-6 right-6 text-white/40 hover:text-white text-4xl font-light transition">&times;</button>
+        <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] object-contain shadow-2xl scale-95 transition-transform duration-500">
     </div>
 
     <!-- 社群快速連結側欄 -->
-    <div class="social-sidebar hidden md:flex">
-        <a href="https://line.me/R/ti/p/@786gomje" target="_blank" class="social-btn bg-line" title="LINE 諮詢"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-4.579-5.383-8.304-12-8.304s-12 3.725-12 8.304c0 4.105 4.27 7.559 10.034 8.221.391.083.923.258 1.058.594.121.301.079.77.039 1.073l-.171 1.032c-.052.313-.252 1.225 1.088.668 1.341-.557 7.235-4.259 9.873-7.291 1.051-1.258 2.079-2.825 2.079-4.3z"/></svg></a>
-        <a href="https://www.facebook.com/people/%E8%95%8E%E7%AB%8B%E5%BB%BA%E8%A8%AD/61564160756130/" target="_blank" class="social-btn bg-fb" title="Facebook"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <a href="https://www.instagram.com/qiaolibuilder/" target="_blank" class="social-btn bg-ig" title="Instagram"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <div class="social-sidebar">
+        <a href="https://line.me/R/ti/p/@786gomje" target="_blank" class="social-btn bg-[#06c755]" title="LINE"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-4.579-5.383-8.304-12-8.304s-12 3.725-12 8.304c0 4.105 4.27 7.559 10.034 8.221.391.083.923.258 1.058.594.121.301.079.77.039 1.073l-.171 1.032c-.052.313-.252 1.225 1.088.668 1.341-.557 7.235-4.259 9.873-7.291 1.051-1.258 2.079-2.825 2.079-4.3z"/></svg></a>
+        <a href="https://www.facebook.com/people/%E8%95%8E%E7%AB%8B%E5%BB%BA%E8%A8%AD/61564160756130/" target="_blank" class="social-btn bg-[#1877f2]" title="FB"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/qiaolibuilder/" target="_blank" class="social-btn bg-[#e4405f]" title="IG"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         <a href="https://www.youtube.com/@%E8%95%8E%E7%AB%8B%E5%BB%BA%E8%A8%AD-jolly/videos" target="_blank" class="social-btn bg-yt" title="YouTube"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
     </div>
 
     <!-- 導覽列 -->
-    <nav class="fixed w-full z-50 h-20 flex items-center glass-nav">
-        <div class="max-w-7xl mx-auto px-10 w-full flex justify-between items-center">
+    <nav class="fixed w-full z-50 h-16 md:h-20 flex items-center glass-nav">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 w-full flex justify-between items-center">
             <div class="flex items-center">
-                <!-- LOGO 放大且白底處理，並導向指定網址 -->
-                <a href="https://www.initial1987.com/" target="_blank" class="h-16 flex items-center hover:opacity-80 transition duration-500">
+                <a href="https://www.initial1987.com/" target="_blank" class="h-12 md:h-16 flex items-center hover:opacity-80 transition duration-500">
                     <img src="13.png" alt="日初觀山 Logo" class="h-full w-auto object-contain" style="filter: invert(1); mix-blend-mode: multiply;">
                 </a>
             </div>
+            
+            <!-- 桌面版選單 -->
             <div class="hidden md:flex space-x-10 items-center text-[12px] font-bold tracking-[0.2em] text-stone-600 uppercase">
-                <a href="#about" class="nav-link hover:text-[#b39352] transition">關於本案</a>
-                <a href="#planning" class="nav-link hover:text-[#b39352] transition">建築規劃</a>
-                <a href="#interior" class="nav-link hover:text-[#b39352] transition">空間美學</a>
-                <a href="#location-aerial" class="nav-link hover:text-[#b39352] transition">周邊環境</a>
-                <a href="#gallery" class="nav-link hover:text-[#b39352] transition">實景藝廊</a>
-                <a href="#contact" class="px-8 py-2.5 bg-stone-900 text-white hover:bg-[#b39352] transition-all duration-700 font-bold tracking-widest text-[11px] shadow-lg">預約鑑賞</a>
+                <a href="#about" class="nav-link transition">關於本案</a>
+                <a href="#planning" class="nav-link transition">建築規劃</a>
+                <a href="#interior" class="nav-link transition">空間美學</a>
+                <a href="#location-aerial" class="nav-link transition">周邊環境</a>
+                <a href="#gallery" class="nav-link transition">實景藝廊</a>
+                <a href="#contact" class="px-6 py-2 bg-stone-900 text-white hover:bg-[#b39352] transition-all duration-700 font-bold tracking-widest text-[11px] shadow-lg">預約鑑賞</a>
             </div>
+
+            <!-- 手機版漢堡按鈕 -->
+            <button onclick="toggleMobileMenu()" class="md:hidden flex flex-col gap-1.5 p-2">
+                <div class="w-6 h-0.5 bg-stone-800"></div>
+                <div class="w-6 h-0.5 bg-stone-800"></div>
+                <div class="w-6 h-0.5 bg-stone-800"></div>
+            </button>
         </div>
     </nav>
 
+    <!-- 手機版側邊選單 -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white md:hidden flex flex-col items-center justify-center space-y-8 text-xl font-bold tracking-widest text-stone-800 shadow-2xl">
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-4xl font-light">&times;</button>
+        <a href="#about" onclick="toggleMobileMenu()" class="hover:text-[#b39352]">關於本案</a>
+        <a href="#planning" onclick="toggleMobileMenu()" class="hover:text-[#b39352]">建築規劃</a>
+        <a href="#interior" onclick="toggleMobileMenu()" class="hover:text-[#b39352]">空間美學</a>
+        <a href="#location-aerial" onclick="toggleMobileMenu()" class="hover:text-[#b39352]">周邊環境</a>
+        <a href="#gallery" onclick="toggleMobileMenu()" class="hover:text-[#b39352]">實景藝廊</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="px-10 py-3 bg-stone-900 text-white text-base">預約鑑賞</a>
+    </div>
+
     <!-- 英雄主視覺 -->
-    <header class="relative h-screen flex items-center justify-center bg-black overflow-hidden">
+    <header class="relative h-[85vh] md:h-screen flex items-center justify-center bg-black overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
             <source src="12.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70"></div>
-        <div class="relative z-10 text-center space-y-12 px-6">
+        <div class="relative z-10 text-center space-y-6 md:space-y-12 px-6">
             <div class="reveal">
-                <img src="13.png" alt="書法 Logo" class="w-72 md:w-[450px] mx-auto mb-16 opacity-90 transition-opacity duration-1000">
-                <p class="text-white/70 text-[11px] eng tracking-[1em] uppercase mb-6 font-bold">Academic Elegance • Quiet Luxury</p>
-                <div class="w-24 h-[1px] bg-[#b39352]/60 mx-auto"></div>
-                <p class="text-stone-200 text-base md:text-2xl font-light tracking-[0.6em] mt-12 serif">溪湖高中旁 ・ 境美別墅聚落</p>
+                <img src="13.png" alt="書法 Logo" class="w-56 md:w-[450px] mx-auto mb-8 md:mb-16 opacity-90">
+                <p class="text-white/70 text-[9px] md:text-[11px] eng tracking-[0.5em] md:tracking-[1em] uppercase font-bold">Academic Elegance • Quiet Luxury</p>
+                <div class="w-16 md:w-24 h-[1px] bg-[#b39352]/60 mx-auto my-6 md:my-10"></div>
+                <p class="text-stone-200 text-sm md:text-2xl font-light tracking-[0.3em] md:tracking-[0.6em] serif">溪湖高中旁 ・ 境美別墅聚落</p>
             </div>
         </div>
-        <div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-            <span class="text-white/40 text-[10px] eng tracking-[0.5em] uppercase font-bold">Scroll to Explore</span>
-            <div class="w-[1px] h-16 bg-gradient-to-b from-[#b39352] to-transparent animate-pulse"></div>
+        <div class="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-4">
+            <span class="text-white/40 text-[8px] md:text-[10px] eng tracking-[0.3em] uppercase font-bold">Scroll</span>
+            <div class="w-[1px] h-10 md:h-16 bg-gradient-to-b from-[#b39352] to-transparent animate-pulse"></div>
         </div>
     </header>
 
     <!-- 品牌哲學 -->
-    <section id="about" class="py-48 bg-white">
-        <div class="max-w-4xl mx-auto px-10 text-center">
+    <section id="about" class="py-24 md:py-48 bg-white">
+        <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
             <div class="reveal">
-                <span class="text-[#b39352] text-[11px] eng tracking-[0.6em] block mb-10 uppercase font-black">Design Philosophy</span>
-                <h2 class="text-4xl md:text-6xl serif leading-relaxed text-stone-800 mb-16 italic">
+                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.4em] md:tracking-[0.6em] block mb-6 md:mb-10 uppercase font-black">Design Philosophy</span>
+                <h2 class="text-2xl md:text-5xl serif leading-relaxed text-stone-800 mb-8 md:mb-16 italic">
                     給家人更好的成長環境<br>也給自己一個真正放鬆的家
                 </h2>
-                <p class="text-stone-500 font-light leading-loose text-xl tracking-widest max-w-2xl mx-auto opacity-90">
-                    我們相信，理想的住宅不只是鋼筋水泥的堆疊，而是對生活品質的深刻理解。在溪湖核心，築起一座靜謐的人文棲所。
+                <p class="text-stone-500 font-light leading-loose text-base md:text-xl tracking-widest max-w-2xl mx-auto opacity-90">
+                    理想的住宅不只是鋼筋水泥的堆疊，而是對生活品質的深刻理解。在溪湖核心，築起一座靜謐的人文棲所。
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- 建築美學 (3.jpg) -->
-    <section class="py-40 bg-stone-100 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+    <!-- 建築美學 -->
+    <section class="py-20 md:py-40 bg-stone-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
                 <div class="lg:col-span-5 reveal order-2 lg:order-1 text-left">
-                    <span class="text-[#b39352] text-[11px] eng tracking-[0.6em] block mb-8 uppercase font-bold">Exterior Art</span>
-                    <h3 class="text-4xl md:text-5xl serif text-stone-800 mb-10 leading-snug font-bold">日式現代建築<br>靜靜安放家的重量</h3>
-                    <p class="text-stone-500 font-light leading-relaxed mb-16 text-lg">
+                    <span class="text-[#b39352] text-[10px] eng tracking-[0.5em] block mb-6 uppercase font-bold">Exterior Art</span>
+                    <h3 class="text-2xl md:text-5xl serif text-stone-800 mb-6 md:mb-10 leading-snug font-bold">日式現代建築<br>靜靜安放家的重量</h3>
+                    <p class="text-stone-500 font-light leading-relaxed mb-8 md:mb-16 text-sm md:text-lg">
                         外觀採用洗鍊的水平線條與自然石材紋理，展現出典雅而穩重的建築姿態。
                     </p>
                 </div>
                 <div class="lg:col-span-7 reveal order-1 lg:order-2">
                     <div class="reveal-mask img-container aspect-[16/10] cursor-pointer" onclick="openFullImage('3.jpg')">
-                        <img src="3.jpg" alt="建築正面" class="hover:scale-105">
+                        <img src="3.jpg" alt="建築正面">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 極致規劃 (4.jpg) -->
-    <section id="planning" class="py-40 bg-white overflow-hidden border-b border-stone-50">
-        <div class="max-w-7xl mx-auto px-10 text-center">
-             <span class="text-[#b39352] text-[11px] eng tracking-[0.6em] block mb-10 uppercase font-black reveal">Master Planning</span>
-             <h2 class="text-4xl md:text-5xl serif text-stone-800 mb-20 reveal font-bold">大尺度生活空間・極致規劃</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+    <!-- 極致規劃 -->
+    <section id="planning" class="py-20 md:py-40 bg-white overflow-hidden border-b border-stone-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
+             <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 md:mb-10 uppercase font-black reveal">Master Planning</span>
+             <h2 class="text-2xl md:text-5xl serif text-stone-800 mb-12 md:mb-20 reveal font-bold">大尺度生活空間・極致規劃</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
                 <div class="lg:col-span-7 reveal">
                     <div class="reveal-mask img-container aspect-[4/3] cursor-pointer" onclick="openFullImage('4.jpg')">
                         <img src="4.jpg" alt="規劃示意圖">
                     </div>
                 </div>
                 <div class="lg:col-span-5 reveal text-left">
-                    <div class="space-y-16">
-                        <div class="border-l-2 border-[#b39352] pl-10">
-                            <h4 class="text-2xl serif font-bold mb-5 text-stone-800 tracking-wider">60–90 坪大器尺度</h4>
-                            <p class="text-stone-500 text-base leading-relaxed font-light">為家庭預留最舒展的尺度，無論是共享天倫還是深度放鬆，三代同堂依然自在。</p>
+                    <div class="space-y-10 md:space-y-16">
+                        <div class="border-l-2 border-[#b39352] pl-6 md:pl-10">
+                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider">60–90 坪大器尺度</h4>
+                            <p class="text-stone-500 text-sm md:text-base leading-relaxed font-light">為家庭預留最舒展的尺度，三代同堂依然自在。</p>
                         </div>
-                        <div class="border-l-2 border-stone-200 pl-10">
-                            <h4 class="text-2xl serif font-bold mb-5 text-stone-800 tracking-wider">整層大主臥與電梯</h4>
-                            <p class="text-stone-500 text-base leading-relaxed font-light">結合現代無障礙動線設計，配備尊榮電梯與整層主臥，賦予主人極致的私密與舒適感。</p>
+                        <div class="border-l-2 border-stone-200 pl-6 md:pl-10">
+                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider">整層大主臥與電梯</h4>
+                            <p class="text-stone-500 text-sm md:text-base leading-relaxed font-light">結合現代無障礙動線設計，賦予主人極致的私密與舒適感。</p>
                         </div>
-                        <div class="border-l-2 border-stone-200 pl-10">
-                            <h4 class="text-2xl serif font-bold mb-5 text-stone-800 tracking-wider">併排雙車位設計</h4>
-                            <p class="text-stone-500 text-base leading-relaxed font-light">5.2 - 6 米寬廣大面寬設計，滿足高品質用車與出入的俐落生活。</p>
+                        <div class="border-l-2 border-stone-200 pl-6 md:pl-10">
+                            <h4 class="text-xl md:text-2xl serif font-bold mb-3 md:mb-5 text-stone-800 tracking-wider">併排雙車位設計</h4>
+                            <p class="text-stone-500 text-sm md:text-base leading-relaxed font-light">5.2 - 6 米寬廣大面寬設計，滿足高品質用車生活。</p>
                         </div>
                     </div>
                 </div>
@@ -258,16 +264,15 @@
         </div>
     </section>
 
-    <!-- 室內美學 (11.jpg / 10.jpg) -->
-    <section id="interior" class="py-40 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-10">
-            <div class="text-center mb-32 reveal">
-                <span class="text-[#b39352] text-[11px] eng tracking-[0.6em] block mb-8 uppercase font-bold">Space Harmony</span>
-                <!-- 調整標題字體大小 -->
-                <h2 class="text-3xl md:text-4xl serif text-stone-800 font-bold mb-6 text-stone-800">奢華・深度休憩空間</h2>
-                <div class="w-20 h-[1px] bg-stone-300 mx-auto mt-10"></div>
+    <!-- 室內美學 -->
+    <section id="interior" class="py-20 md:py-40 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16 md:mb-32 reveal">
+                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 uppercase font-bold">Space Harmony</span>
+                <h2 class="text-2xl md:text-4xl serif text-stone-800 font-bold mb-4">奢華・深度休憩空間</h2>
+                <div class="w-16 h-[1px] bg-stone-300 mx-auto mt-6 md:mt-10"></div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
                 <div class="lg:col-span-8 reveal">
                     <div class="img-container aspect-[16/9] cursor-pointer shadow-3xl" onclick="openFullImage('11.jpg')">
                         <img src="11.jpg" alt="室內實景 11">
@@ -277,55 +282,54 @@
                     <div class="img-container aspect-[4/5] cursor-pointer" onclick="openFullImage('10.jpg')">
                         <img src="10.jpg" alt="室內實景 10">
                     </div>
-                    <p class="mt-12 text-stone-500 font-light leading-loose text-lg italic opacity-80">
-                        大面採光引入四時晨曦，結合開放式的流線規劃，讓光線在居家角落自在嬉戲。
+                    <p class="mt-8 md:mt-12 text-stone-500 font-light leading-loose text-sm md:text-lg italic opacity-80">
+                        大面採光引入四時晨曦，讓光線在居家角落自在嬉戲。
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 空拍地段 (15.jpg) -->
-    <section id="location-aerial" class="py-48 bg-stone-900 text-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-10 text-center">
-            <div class="reveal mb-24">
-                <span class="text-[#b39352] text-[11px] eng tracking-[0.6em] block mb-8 uppercase font-bold">Strategic Location</span>
-                <h2 class="text-4xl md:text-6xl serif mb-10 leading-tight font-bold tracking-widest text-center text-white">繁華與安寧的交界</h2>
-                <p class="text-stone-400 font-light leading-loose text-lg tracking-widest max-w-3xl mx-auto">
-                    空拍俯瞰溪湖核心，日初觀山坐落於教育與機能的最佳交匯點。一邊是學風鼎盛的高中校園，一邊是靜謐繁榮的居住聚落。
+    <!-- 空拍地段 -->
+    <section id="location-aerial" class="py-24 md:py-48 bg-stone-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
+            <div class="reveal mb-12 md:mb-24">
+                <span class="text-[#b39352] text-[10px] md:text-[11px] eng tracking-[0.5em] block mb-6 uppercase font-bold">Strategic Location</span>
+                <h2 class="text-2xl md:text-6xl serif mb-6 md:mb-10 leading-tight font-bold tracking-widest">繁華與安寧的交界</h2>
+                <p class="text-stone-400 font-light leading-loose text-sm md:text-lg tracking-widest max-w-3xl mx-auto">
+                    日初觀山坐落於教育與機能的最佳交匯點。一邊是學風鼎盛的高中校園，一邊是靜謐繁榮的居住聚落。
                 </p>
             </div>
-            <div class="reveal px-4">
+            <div class="reveal">
                 <div class="img-container shadow-2xl cursor-pointer rounded-sm" onclick="openFullImage('15.jpg')">
-                    <img src="15.jpg" alt="空拍位置圖" class="opacity-90 hover:opacity-100 transition-opacity duration-1000">
+                    <img src="15.jpg" alt="空拍位置圖" class="opacity-90">
                 </div>
-                <p class="mt-10 text-[11px] eng tracking-[0.4em] text-stone-500 text-center uppercase">Aerial Map / Night View Perspective</p>
+                <p class="mt-6 md:mt-10 text-[9px] md:text-[11px] eng tracking-[0.3em] text-stone-500 uppercase">Aerial Map Perspective</p>
             </div>
         </div>
     </section>
 
-    <!-- 生活機能影片 (16.mp4) - 單一焦點排版 -->
-    <section class="py-40 bg-white overflow-hidden border-b border-stone-50">
-        <div class="max-w-7xl mx-auto px-10 text-center">
-            <div class="mb-24 reveal">
-                <h2 class="text-5xl serif text-stone-800 mb-6 tracking-widest font-bold uppercase text-stone-800">溪湖生活圈・便利即達</h2>
-                <p class="text-[#b39352] text-xs eng tracking-[0.5em] uppercase font-bold">Living Guide Dynamic Tour</p>
+    <!-- 生活機能影片 (16.mp4) -->
+    <section class="py-20 md:py-40 bg-white overflow-hidden border-b border-stone-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
+            <div class="mb-12 md:mb-24 reveal">
+                <h2 class="text-2xl md:text-5xl serif text-stone-800 mb-4 tracking-widest font-bold uppercase">溪湖生活圈・便利即達</h2>
+                <p class="text-[#b39352] text-[10px] md:text-xs eng tracking-[0.4em] uppercase font-bold">Living Guide Dynamic Tour</p>
             </div>
             <div class="max-w-6xl mx-auto reveal">
-                <!-- 已移除 17.jpg，改為影片置中放大 -->
-                <div class="img-container shadow-3xl bg-stone-50 rounded-xl min-h-[400px]">
+                <div class="img-container shadow-3xl bg-stone-50 rounded-xl min-h-[250px] md:min-h-[450px]">
                     <video autoplay muted loop playsinline preload="auto" poster="14.jpg" class="w-full h-auto block">
                         <source src="16.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mt-24 text-left px-4">
-                    <div class="p-12 border-l border-stone-200 bg-stone-50/50 hover:bg-stone-50 transition-colors duration-500">
-                        <h4 class="font-bold text-2xl serif mb-6 text-stone-800 tracking-wider">教育文教核心</h4>
-                        <p class="text-stone-500 text-lg leading-relaxed font-light">鄰近溪湖高中、湖東國小，漫步即可抵達校園，為下一代打造書香氛圍。孩子在寧靜學區成長，父母更安心。</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mt-12 md:mt-24 text-left px-4">
+                    <div class="p-8 md:p-12 border-l border-stone-200 bg-stone-50/50">
+                        <h4 class="font-bold text-xl md:text-2xl serif mb-4 md:mb-6 text-stone-800 tracking-wider">教育文教核心</h4>
+                        <p class="text-stone-500 text-sm md:text-lg leading-relaxed font-light">鄰近溪湖高中、湖東國小，漫步即可抵達校園，為下一代打造書香氛圍。</p>
                     </div>
-                    <div class="p-12 border-l border-stone-200 bg-stone-50/50 hover:bg-stone-50 transition-colors duration-500">
-                        <h4 class="font-bold text-2xl serif mb-6 text-stone-800 tracking-wider">生活全能機能</h4>
-                        <p class="text-stone-500 text-lg leading-relaxed font-light">鄰近市場與行政中心，轉身即享成熟商圈便利。食衣住行全方位滿足，享受城市與隱逸的最佳平衡。</p>
+                    <div class="p-8 md:p-12 border-l border-stone-200 bg-stone-50/50">
+                        <h4 class="font-bold text-xl md:text-2xl serif mb-4 md:mb-6 text-stone-800 tracking-wider">生活全能機能</h4>
+                        <p class="text-stone-500 text-sm md:text-lg leading-relaxed font-light">鄰近市場與行政中心，轉身即享商圈便利。食衣住行全方位滿足。</p>
                     </div>
                 </div>
             </div>
@@ -333,111 +337,111 @@
     </section>
 
     <!-- 實景藝廊 -->
-    <section id="gallery" class="py-40 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-10">
-            <div class="flex flex-col md:flex-row justify-between items-baseline mb-32 reveal">
-                <h2 class="text-6xl serif text-stone-800 font-bold tracking-tight text-stone-800">建築藝廊</h2>
-                <span class="text-stone-400 text-sm eng tracking-[0.4em] uppercase font-bold mt-4 md:mt-0 opacity-60">Gallery Collection 2025</span>
+    <section id="gallery" class="py-20 md:py-40 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="flex flex-col md:flex-row justify-between items-baseline mb-16 md:mb-32 reveal text-center md:text-left">
+                <h2 class="text-3xl md:text-6xl serif text-stone-800 font-bold tracking-tight w-full md:w-auto">建築藝廊</h2>
+                <span class="text-stone-400 text-xs md:text-sm eng tracking-[0.3em] uppercase font-bold mt-4 md:mt-0 opacity-60 w-full md:w-auto">Collection 2025</span>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                 <div class="img-container aspect-square cursor-pointer reveal" onclick="openFullImage('1.jpg')"><img src="1.jpg"></div>
                 <div class="img-container aspect-square cursor-pointer reveal" onclick="openFullImage('2.jpg')"><img src="2.jpg"></div>
-                <div class="img-container aspect-square cursor-pointer reveal lg:mt-24" onclick="openFullImage('6.jpg')"><img src="6.jpg"></div>
-                <div class="img-container aspect-square cursor-pointer reveal lg:mt-24" onclick="openFullImage('7.jpg')"><img src="7.jpg"></div>
+                <div class="img-container aspect-square cursor-pointer reveal md:mt-24" onclick="openFullImage('6.jpg')"><img src="6.jpg"></div>
+                <div class="img-container aspect-square cursor-pointer reveal md:mt-24" onclick="openFullImage('7.jpg')"><img src="7.jpg"></div>
                 <div class="img-container aspect-square cursor-pointer reveal" onclick="openFullImage('8.jpg')"><img src="8.jpg"></div>
                 <div class="img-container aspect-square cursor-pointer reveal" onclick="openFullImage('9.jpg')"><img src="9.jpg"></div>
-                <div class="md:col-span-2 flex items-center justify-center bg-stone-900 text-white p-16 reveal shadow-2xl">
-                    <p class="serif text-3xl text-center tracking-[0.2em] italic opacity-80 leading-relaxed font-light text-center">追求極致匠心，<br>築起不凡的生活高度。</p>
+                <div class="col-span-2 md:col-span-2 flex items-center justify-center bg-stone-900 text-white p-8 md:p-16 reveal shadow-2xl">
+                    <p class="serif text-xl md:text-3xl text-center tracking-[0.1em] italic opacity-80 leading-relaxed font-light">追求極致匠心，築起不凡高度。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 720 VR -->
-    <section class="py-40 bg-white">
-        <div class="max-w-7xl mx-auto px-10 text-center">
-            <div class="reveal mb-24">
-                <h2 class="text-5xl serif text-stone-800 mb-8 tracking-widest font-bold uppercase text-stone-800">720° 全景線上賞屋</h2>
+    <section class="py-20 md:py-40 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
+            <div class="reveal mb-12 md:mb-24">
+                <h2 class="text-3xl md:text-5xl serif text-stone-800 mb-6 tracking-widest font-bold uppercase">720° 全景線上賞屋</h2>
                 <div class="w-16 h-[1px] bg-[#b39352] mx-auto"></div>
             </div>
             <div class="reveal shadow-3xl rounded-2xl overflow-hidden border border-stone-100 bg-stone-50">
-                <div class="relative w-full aspect-video md:aspect-[21/9] min-h-[500px]">
-                    <iframe src="https://www.qwhouse720.com/tour/a04bf933b0b50a3f" frameborder="no" class="absolute inset-0 w-full h-full opacity-90 hover:opacity-100 transition-opacity" allowfullscreen></iframe>
+                <div class="relative w-full aspect-video md:aspect-[21/9] min-h-[300px] md:min-h-[500px]">
+                    <iframe src="https://www.qwhouse720.com/tour/a04bf933b0b50a3f" frameborder="no" class="absolute inset-0 w-full h-full" allow="fullscreen; gyroscope; accelerometer; vr" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 聯絡預約 (經典白底字卡還原) -->
-    <section id="contact" class="py-40 relative bg-stone-900 text-center overflow-hidden">
-        <img src="5.jpg" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" alt="建案全景背景">
-        <div class="relative z-10 max-w-4xl mx-auto px-8 bg-white p-16 md:p-24 shadow-3xl reveal rounded-sm">
-            <h3 class="text-5xl md:text-7xl serif mb-8 text-stone-800 font-bold tracking-tight">1880 萬起</h3>
-            <p class="text-[#b39352] mb-16 tracking-[0.6em] text-sm font-black uppercase text-center">與理想生活不期而遇</p>
+    <!-- 聯絡預約 -->
+    <section id="contact" class="py-20 md:py-40 relative bg-stone-900 text-center overflow-hidden">
+        <img src="5.jpg" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" alt="背景">
+        <div class="relative z-10 max-w-4xl mx-auto px-6 bg-white p-10 md:p-24 shadow-3xl reveal rounded-sm">
+            <h3 class="text-3xl md:text-7xl serif mb-6 md:mb-8 text-stone-800 font-bold tracking-tight">1880 萬起</h3>
+            <p class="text-[#b39352] mb-10 md:mb-16 tracking-[0.4em] md:tracking-[0.6em] text-xs md:text-sm font-black uppercase text-center">與理想生活不期而遇</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left mb-16 border-y border-stone-100 py-12">
-                <div>
-                    <p class="text-[11px] text-stone-400 uppercase font-black mb-3 tracking-[0.3em]">VIP Reservation</p>
-                    <p class="text-2xl text-stone-800 font-bold tracking-tighter text-stone-800">0917-833-296</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left mb-10 md:mb-16 border-y border-stone-100 py-8 md:py-12">
+                <div class="text-center md:text-left">
+                    <p class="text-[10px] text-stone-400 uppercase font-black mb-2 tracking-[0.2em]">VIP Reservation</p>
+                    <p class="text-xl md:text-2xl text-stone-800 font-bold">0917-833-296</p>
                 </div>
-                <div>
-                    <p class="text-[11px] text-stone-400 uppercase font-black mb-3 tracking-[0.3em]">Sales Center</p>
-                    <p class="text-2xl text-stone-800 font-medium leading-tight serif text-stone-800">員林市員林大道五段89號</p>
+                <div class="text-center md:text-left border-t border-stone-100 pt-8 md:border-t-0 md:pt-0">
+                    <p class="text-[10px] text-stone-400 uppercase font-black mb-2 tracking-[0.2em]">Sales Center</p>
+                    <p class="text-xl md:text-2xl text-stone-800 font-medium leading-tight serif">員林市員林大道五段89號</p>
                 </div>
             </div>
             
-            <a href="tel:0917-833-296" class="block w-full bg-stone-900 text-white py-6 text-xl font-bold hover:bg-[#b39352] transition-all duration-700 tracking-[0.5em] shadow-2xl rounded-sm uppercase">
+            <a href="tel:0917-833-296" class="block w-full bg-stone-900 text-white py-5 md:py-6 text-lg md:text-xl font-bold hover:bg-[#b39352] transition-all duration-700 tracking-[0.3em] md:tracking-[0.5em] shadow-2xl rounded-sm uppercase">
                 立即致電預約
             </a>
         </div>
     </section>
 
-    <footer class="py-24 bg-black text-center border-t border-stone-900">
-        <div class="max-w-7xl mx-auto px-10 flex flex-col md:flex-row justify-between items-center opacity-30">
-            <p class="text-[10px] eng tracking-[0.5em] text-white uppercase font-bold">© 2025 SHIAO LI CONSTRUCTION. ALL RIGHTS RESERVED.</p>
-            <p class="text-[10px] text-white tracking-[0.3em] font-bold mt-4 md:mt-0">蕭立建設｜卓越美學・建築新高度</p>
+    <footer class="py-16 md:py-24 bg-black text-center">
+        <div class="max-w-7xl mx-auto px-10 flex flex-col md:flex-row justify-between items-center opacity-30 gap-4">
+            <p class="text-[9px] md:text-[10px] eng tracking-[0.4em] text-white uppercase font-bold">© 2025 SHIAO LI CONSTRUCTION. ALL RIGHTS RESERVED.</p>
+            <p class="text-[9px] md:text-[10px] text-white tracking-[0.2em] font-bold">蕭立建設｜卓越美學・建築新高度</p>
         </div>
     </footer>
 
     <!-- AI 客服顧問 -->
     <div id="ai-chat-widget">
         <div id="ai-chat-window">
-            <div class="bg-stone-950 p-6 text-white flex justify-between items-center rounded-t-16 shadow-2xl">
+            <div class="bg-stone-950 p-5 text-white flex justify-between items-center rounded-t-16 shadow-2xl">
                 <div class="flex items-center space-x-3">
-                    <span class="w-2.5 h-2.5 bg-[#b39352] rounded-full animate-pulse shadow-[0_0_10px_#b39352]"></span>
+                    <span class="w-2 h-2 bg-[#b39352] rounded-full animate-pulse shadow-[0_0_8px_#b39352]"></span>
                     <div>
-                        <p class="text-[9px] eng tracking-[0.3em] text-[#b39352] mb-0.5 uppercase font-black">Concierge Service</p>
-                        <p class="serif text-xl tracking-widest font-bold">智能顧問</p>
+                        <p class="text-[8px] eng tracking-[0.2em] text-[#b39352] mb-0.5 uppercase font-black">Concierge Service</p>
+                        <p class="serif text-lg tracking-widest font-bold">智能顧問</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-white/40 hover:text-white transition text-3xl font-light">&times;</button>
             </div>
-            <div class="bg-stone-50 p-4 px-8 border-b border-stone-100 text-center">
-                <a href="tel:0917-833-296" class="flex items-center justify-center space-x-3 bg-white text-stone-800 py-2.5 rounded shadow-sm text-[11px] font-black tracking-widest uppercase hover:bg-stone-100 transition duration-500 border border-stone-200">
+            <div class="bg-stone-50 p-3 px-6 border-b border-stone-100 text-center">
+                <a href="tel:0917-833-296" class="flex items-center justify-center space-x-2 bg-white text-stone-800 py-2 rounded shadow-sm text-[10px] font-black tracking-widest uppercase hover:bg-stone-100 transition duration-500 border border-stone-200">
                     <svg class="w-4 h-4 text-[#b39352]" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
                     <span>致電預約 0917-833-296</span>
                 </a>
             </div>
-            <div id="chat-messages" class="chat-messages flex flex-col space-y-5">
-                <div class="message ai shadow-sm border border-stone-100">您好！我是日初觀山的智能顧問 ✨。很榮幸能為您導覽這個學區美學別墅聚落。關於本案的規劃、機能或報價，請問有什麼可以為您服務的？</div>
+            <div id="chat-messages" class="chat-messages flex flex-col space-y-4">
+                <div class="message ai shadow-sm border border-stone-100">您好！我是日初觀山的智能顧問 ✨。很榮幸能為您導覽這個學區美學別墅聚落。</div>
             </div>
-            <div id="typing-indicator" class="hidden px-8 py-3 text-[11px] text-stone-300 italic font-bold">顧問正在思考中...</div>
-            <div class="p-6 bg-white border-t border-stone-100 flex items-center space-x-4">
-                <input type="text" id="user-input" placeholder="請輸入您的詢問內容..." class="flex-1 outline-none text-sm font-light px-5 py-3.5 bg-stone-50 rounded-full border border-stone-200 focus:border-[#b39352] transition-all duration-500">
-                <button onclick="sendMessage()" class="w-12 h-12 flex items-center justify-center bg-stone-900 text-[#b39352] rounded-full hover:bg-black hover:scale-110 transition-all shadow-xl">➔</button>
+            <div id="typing-indicator" class="hidden px-6 py-2 text-[10px] text-stone-300 italic font-bold">思考中...</div>
+            <div class="p-4 bg-white border-t border-stone-100 flex items-center space-x-3">
+                <input type="text" id="user-input" placeholder="請輸入詢問內容..." class="flex-1 outline-none text-xs font-light px-4 py-2.5 bg-stone-50 rounded-full border border-stone-200 focus:border-[#b39352]">
+                <button onclick="sendMessage()" class="w-10 h-10 flex items-center justify-center bg-stone-900 text-[#b39352] rounded-full hover:bg-black transition-all shadow-xl">➔</button>
             </div>
         </div>
-        <!-- ✨ 懸浮按鈕 -->
-        <button onclick="toggleChat()" class="group bg-white border border-[#b39352]/30 w-18 h-18 p-5 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex items-center justify-center group hover:scale-110 transition-all duration-500">
+        <button onclick="toggleChat()" class="group bg-white border border-[#b39352]/30 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-all duration-500">
             <span class="absolute inset-0 bg-[#b39352] opacity-10 rounded-full animate-ping group-hover:hidden"></span>
             <div class="relative z-10 flex flex-col items-center">
-                <span class="text-[#b39352] text-2xl group-hover:rotate-12 transition-transform font-bold">✨</span>
-                <span class="text-[9px] font-black text-stone-400 eng mt-1 tracking-tighter uppercase opacity-60">AI Consult</span>
+                <span class="text-[#b39352] text-xl group-hover:rotate-12 transition-transform font-bold">✨</span>
+                <span class="text-[8px] font-black text-stone-400 eng mt-0.5 tracking-tighter uppercase">AI</span>
             </div>
         </button>
     </div>
 
     <script>
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
         function toggleChat() { document.getElementById('ai-chat-window').classList.toggle('active'); }
 
         async function sendMessage() {
@@ -445,23 +449,21 @@
             const history = document.getElementById('chat-messages');
             const text = input.value.trim();
             if(!text) return;
-
             const uMsg = document.createElement('div');
-            uMsg.className = 'message user shadow-md';
+            uMsg.className = 'message user shadow-md text-left';
             uMsg.textContent = text;
             history.appendChild(uMsg);
             input.value = '';
             history.scrollTop = history.scrollHeight;
-
             document.getElementById('typing-indicator').classList.remove('hidden');
             setTimeout(() => {
                 document.getElementById('typing-indicator').classList.add('hidden');
                 const aMsg = document.createElement('div');
-                aMsg.className = 'message ai shadow-sm border border-stone-100';
-                aMsg.innerHTML = "✨ 感謝您的詢問！為了提供最精確的資訊，推薦您撥打預約專線 <a href='tel:0917-833-296' class='text-[#b39352] font-black underline'>0917-833-296</a>，我們將由專人為您服務。";
+                aMsg.className = 'message ai shadow-sm border border-stone-100 text-left';
+                aMsg.innerHTML = "✨ 感謝您的詢問！推薦您撥打預約專線 <a href='tel:0917-833-296' class='text-[#b39352] font-black underline'>0917-833-296</a>，我們將由專人為您服務。";
                 history.appendChild(aMsg);
                 history.scrollTop = history.scrollHeight;
-            }, 1200);
+            }, 1000);
         }
 
         function openFullImage(src) {
@@ -470,22 +472,15 @@
             img.src = src;
             lb.classList.remove('hidden');
             lb.classList.add('flex');
-            setTimeout(() => {
-                lb.classList.replace('opacity-0', 'opacity-100');
-                img.classList.replace('scale-95', 'scale-100');
-            }, 50);
+            setTimeout(() => { lb.classList.replace('opacity-0', 'opacity-100'); img.classList.replace('scale-95', 'scale-100'); }, 50);
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
             const lb = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
-            lb.classList.replace('opacity-100', 'opacity-0');
-            img.classList.replace('scale-100', 'scale-95');
-            setTimeout(() => {
-                lb.classList.remove('flex');
-                lb.classList.add('hidden');
-            }, 300);
+            lb.classList.replace('opacity-100', 'opacity-0'); img.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => { lb.classList.remove('flex'); lb.classList.add('hidden'); }, 300);
             document.body.style.overflow = '';
         }
 
@@ -493,7 +488,6 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
         document.getElementById('user-input').addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
     </script>
 </body>
